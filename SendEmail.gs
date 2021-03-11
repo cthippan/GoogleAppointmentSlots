@@ -3,7 +3,7 @@
 // Trigger on edit to spreadsheet storing appointment slot data
 function createTimeDrivenTriggers() {
   var triggers = ScriptApp.getProjectTriggers();
-for (var i = 0; i < triggers.length; i++) {
+for (var i = 1; i < triggers.length; i++) {
   ScriptApp.deleteTrigger(triggers[i]);
 }
   ScriptApp.newTrigger('timeTrigger')
