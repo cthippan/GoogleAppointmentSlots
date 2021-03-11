@@ -103,7 +103,7 @@ function sendEmail()
   var rem_events_list = rem_events_list.filter(function (el) {
   return el != null;});
   //free up slot 
-  var calendarId = 'c_6i25ic27u0e9b5ev3iih428560@group.calendar.google.com';
+  var calendarId = 'xxxxxxxxxxxxxxxxxxxx@group.calendar.google.com';
   var eventCal=CalendarApp.getCalendarById(calendarId);
 
   for (i=0;i <=rem_events_list.length-1;i++){
