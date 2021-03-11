@@ -6,7 +6,7 @@ function createTimeDrivenTriggers() {
  var ss=SpreadsheetApp.openById('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
  ScriptApp.newTrigger('timeTrigger')
   .forSpreadsheet(ss)
-  .onChange()
+  .onEdit()
   .create();
 }
 
@@ -80,10 +80,10 @@ function sendEmail()
     //delete calender event
     eventCal.getEventById(target_event).deleteEvent();
    
-    var triggers = ScriptApp.getProjectTriggers();
-    for (var i = 1; i < triggers.length; i++) {
-     ScriptApp.deleteTrigger(triggers[i]);
-}
+//     var triggers = ScriptApp.getProjectTriggers();
+//     for (var i = 1; i < triggers.length; i++) {
+//      ScriptApp.deleteTrigger(triggers[i]);
+//}
 
   }
 
