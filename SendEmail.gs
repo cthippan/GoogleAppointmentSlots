@@ -12,10 +12,16 @@ function sheetTrigger() {
 
 //  Trigger after 5 min.
 function timeTrigger(){
- ScriptApp.newTrigger('freeSlot')
+ ScriptApp.newTrigger('event')
   .timeBased()
   .after(5 * 60 * 100)
   .create();
+}
+
+//Trigger event
+function event(){
+  freeSlot();
+  sendEmail();
 }
 
 function sendEmail() 
