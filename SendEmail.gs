@@ -8,7 +8,7 @@ function sheetTrigger() {
   var sp = PropertiesService.getScriptProperties();
   var sheet = ss.getSheetByName("Appointments");
   var valueToCheck = sheet.getRange("B2").getValue();
-  var oldValue = sp.getProperty("B2") || 0;
+  var oldValue = sp.getProperty("B2");
   Logger.log(oldValue);
   Logger.log(valueToCheck);
   if (valueToCheck != oldValue) {
