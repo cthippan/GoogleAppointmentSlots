@@ -1,22 +1,29 @@
 //Creates  time-driven triggers.
  
 // Trigger on edit to spreadsheet storing appointment slot data
+// Trigger on edit to spreadsheet storing appointment slot data
 function sheetTrigger() { 
- var ss=SpreadsheetApp.openById('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
- ScriptApp.newTrigger('timeTrigger')
-  .forSpreadsheet(ss)
-  .onEdit()
-  .create();
+ var ss=SpreadsheetApp.openById('1FycYNu2NViMSvNmGDaXO2FeS4hN_t61NIAX0aqPbXKo');
+ 
+  var sp = PropertiesService.getScriptProperties();
+  var sheet = ss.getSheetByName("Appointments");
+  var valueToCheck = sheet.getRange("B2").getValue();
+  var oldValue = sp.getProperty("B2") || 0;
+  Logger.log(oldValue);
+  Logger.log(valueToCheck);
+  if (valueToCheck != oldValue) {
+    sp.setProperty("B2", valueToCheck);
+    Utilities.sleep(300000); // sleep for 5min to allow user to complete form
+   event();
   }
-
-
+  }
 //  Trigger after 5 min.
-function timeTrigger(){
- ScriptApp.newTrigger('event')
-  .timeBased()
-  .after(5 * 60 * 100)
-  .create();
-}
+// function timeTrigger(){
+//  ScriptApp.newTrigger('event')
+//   .timeBased()
+//   .after(5 * 60 * 100)
+//   .create();
+// }
 
 //Trigger event
 function event(){
